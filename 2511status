@@ -1,0 +1,118 @@
+Bug No: 18
+
+In student’s profile page, for the height field, it is showing the value ‘nu’. While editing, it is allowing only two digits. What is the unit of this field (cm or feet?) Calories calculation includes height. So, in this case, not sure how it will work when it has value ‘nu’.
+
+Fixed.
+
+Testing Senario: 
+
+We Need to create first new student in the webapp and need to login in mobile app those details.
+
+Click on Menu and fo to Edit Profile.
+
+Now content will load in 3 sec and height and weight fields are now in 0 , 0 i they are empty. we should give the height and weight there and i changed the height field value will accept up to 3 numbers.
+
+Bug No: 17
+
+Add new student using csv upload, don’t assign any course. Login to mobile app using the student’s credential. The courses menu page is keep on showing ‘Loading…’ image. Even if we close and reopen the app, it is showing the image. I tried other logins which has courses assigned, but, it is showing the same image. Only the user id ‘param’ worked. Eugene also faced the same problem. I have asked him to use the id ‘param’.
+
+Fixed.
+
+I fixed the page loading issue. now  it won't show again. first screen will wait for two seconds and will load the content otherwise i will show no data message.
+
+Testing Senario: 
+
+We Need to create first new student in the webapp and need to login in mobile app those details.
+
+Please check it with out assigning any cousrse to the student.
+
+Bug No: 16
+
+When the student is doing exercise, he should be able to play the video and see his heart rate values. But, with current implementation, we are not able to see both video and heartrate at the same time. I saw this couple of day back. Due to device scan issue, I couldn’t verify this again. Please test and fix it.
+
+
+Fixed.
+
+I updated the screen design and the video is also we added in the screen. Now User can able to saw the video along with user info.
+
+
+Testing Senario: 
+
+We Need to create first new student in the webapp and need to login in mobile app those details.
+
+Please assaign new course, new workout and new excierce in the webappp.
+
+Please login thorough Student login details and go the exceierce details page and click on "start excienrce button".
+
+It will open the Blutooth Scan screen and click on the scan devices button at the top.
+
+It will display all the devices info and please connect with our  "Heart Rate Misson".
+
+if it not showing keep on trying with blutooth off and on and start scanning.
+
+
+Bug No. 14
+
+The device scan duration has been set as 3 secs. Sometimes the device is not getting detected within the duration. We need to increase the duration (may be 30 secs?). Do some testing and check what the standard for scan duration is.
+
+Fixed.
+
+Please folow the above Bug no 14 Testing scenario.
+
+
+
+Bug No 8 to 13
+
+The course/workout/exercise status is incorrect. Please see the below screenshots.
+
+Fixed
+
+Screenshot1(ref:below email): CourseA is showing 25%. But, under the course, none of the workouts are in completed state.
+
+Fixed
+
+Screenshot1(ref:below email): course ‘t1’ has 2 days. But, it is showing as ‘ 1 days’
+
+Fixed
+
+Screenshot2 & 3(ref:below email): workout A1 is showing as ‘in progress’ but it has only one exercise which is ‘Completed’ state. So, the workout should be in ‘Completed’ state.
+
+Need To Test
+
+Screenshot2 & 4(ref:below email): workout A2 is showing as ‘Not Yet Started’ but it has only one exercise which is ‘Completed’ state. So, the workout should be in ‘Completed’ state.
+
+Need To Test
+
+When I mark the exercise as complete is workout A1, it automatically marked the exercise as complete in workout A2 as well. Impact: If we assign same exercise/workout to multiple courses/students, marking the exercise as completed for one student/workout/course will reflect in other students/courses.
+
+Fixed.
+
+
+New Fixes Proposed By Today Evening
+
+1. Caloreis burn and Average Heart value is showing even it is in Not Yet Started state 
+
+Fixed
+
+2. Profule Page showing blank screen
+
+Fixed
+
+Added condition in the excierce details page.
+
+3. UI in the Hear beat generating screen
+
+Work in Progrosss
+
+4. Blottoth device not connecting fastly
+
+Work In Progross
+
+5. Calories Burning formula
+
+https://fitness.stackexchange.com/questions/12435/is-it-possible-to-measure-calorie-burn-from-heart-rate-alone
+
+Peasent i am caliculating with  gender 'Male'
+
+Math.round(((-55.0969 + (0.6309 * this.state.average) + (0.1988 * this.state.weight ) + (0.2017 * this.state.age))/4.184) * 60 * 1);
+

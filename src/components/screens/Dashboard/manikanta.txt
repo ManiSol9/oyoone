@@ -1,0 +1,103 @@
+Mobile APP features
+
+    1. Login
+    2. Registration with Mobile Number verification
+    3. Tabs 
+        - Dashboard 
+            - Slider
+            - 4 options
+            - 4 Image or Adds to show the offers
+        - Shopping (only Tab neeeds to show in dovlopment mode)
+        - Menu
+            - Address Update
+            - Password Update
+            - Orders
+            - Requests
+            - Logout
+
+    4. forgot Password
+
+        Dashboard
+
+        1. New Sim
+        2. MNP
+        3. SIM Replacement
+        4. Fancy
+
+
+        New SIM
+            
+        Needs to put 2 select boxes and 1 button to serach the data of sim entrys. after that we have ask user to confirm. For reference check 
+        http://olosim.com/sims
+
+        Only user registered city number's needs to come.
+
+
+        MNP:
+
+        Needs to check the service page for better understandment.and need to remove dnd option.
+
+            Mobile Number
+
+            Sevice Provider
+
+            Existing Provider
+
+            Protable Mobile Number
+
+            Address 
+
+            Landmark
+
+
+        SIM Replacement
+
+            SERVICE Provider
+
+            Last sim Number
+
+            Alternate sim Number
+
+            Address
+
+            Landmark
+
+        Fancy Number
+
+            SERVICE Provider
+
+            Losr sim Number
+
+            Alternate sim Number
+
+            Address
+            
+            Landmark
+
+---------------------------------------------------=-------------------------------------
+
+Agent => 
+
+    1. Service Requests
+
+    2. Add sim
+
+        1. Service Protable
+        2. Circle
+        2. city
+        3. Sim type
+        4. Sim numnber ( up to 10 )
+        5. 4 plans
+
+            All these data needs to show in customers
+
+    3. Sim booking details
+
+    4. logout
+
+
+
+
+
+
+
