@@ -39,7 +39,7 @@ export default class Dashboard_Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loader:true,
+      loader: true,
       slider_images: []
     };
   }
@@ -52,25 +52,25 @@ export default class Dashboard_Content extends Component {
   async componentDidMount() {
     let USER_ID = await AsyncStorage.getItem("USER_ID");
     console.log(USER_ID)
-    if(USER_ID == null){
+    if (USER_ID == null) {
       const { navigate } = this.props.navigation
       onSignOut();
-      navigate("SignedOut")     
+      navigate("SignedOut")
     } else {
 
-    axios.post('http://apis.olosim.com/pitcures.php')
-    .then(async (response) => {
-        console.log(response)
-        data = response.data
-        this.setState({slider_images: data, loader: false})
-      })
-      .catch((error) => {
-        console.log(error.message)
-        this.setState({loader: false})
-    })
+      axios.post('http://apis.olosim.com/pitcures.php')
+        .then(async (response) => {
+          console.log(response)
+          data = response.data
+          this.setState({ slider_images: data, loader: false })
+        })
+        .catch((error) => {
+          console.log(error.message)
+          this.setState({ loader: false })
+        })
 
-  }
-    
+    }
+
   }
 
   menu = () => {
@@ -88,110 +88,157 @@ export default class Dashboard_Content extends Component {
     navigate("Sims")
   }
 
+  move = () => {
+    const { navigate } = this.props.navigation
+    navigate("Newsim")
+
+  }
+
   render() {
 
     const { slider_images } = this.state
 
     console.log(slider_images)
 
-      return (
-        <View>
-        <View style={{ flex: 1, flexDirection: 'column', width: '100%', height: '100%'}}>
+    return (
+      <View>
+        <View style={{ flex: 1, flexDirection: 'column', width: '100%', height: '100%' }}>
 
           <View style={{
-              borderWidth: 1,
-              borderRadius: 2,
-              borderColor: '#ddd',
-              borderBottomWidth: 0,
-              shadowColor: '#000',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.8,
-              shadowRadius: 1,
-              elevation: 1,
-              backgroundColor: '#FFF'
+            borderWidth: 1,
+            borderRadius: 2,
+            borderColor: '#ddd',
+            borderBottomWidth: 0,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.8,
+            shadowRadius: 1,
+            elevation: 1,
+            backgroundColor: '#FFF'
           }}>
 
-            <View style={{padding: 15, top: 0, backgroundColor: '#FFF', height: 50}}>
-            <Text style={{ color: '#757575', fontWeight: 'bold', fontSize: 19, paddingLeft: 5,}}>HOME</Text>                  
+            <View style={{ padding: 15, top: 0, backgroundColor: '#FFF', height: 50 }}>
+              <Text style={{ color: '#757575', fontWeight: 'bold', fontSize: 19, paddingLeft: 5, }}>HOME</Text>
             </View>
           </View>
 
           <View>
 
-          {
-            this.state.loader?
+            {
+              this.state.loader ?
 
-            <View style={{
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-            <ActivityIndicator size="large" color="#FFC300" />
-          </View>
-            :
+                <View style={{
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <ActivityIndicator size="large" color="#FFC300" />
+                </View>
+                :
 
-            <View>
-                <View style={{height: 230, marginTop: 0, justifyContent: 'center', alignItems: 'center'}}>
+                <View>
+                  <View style={{ height: 230, marginTop: 0, justifyContent: 'center', alignItems: 'center' }}>
                     <Carousel
-                        width={width-20}
-                        height={220}
-                        delay={2000}
-                        indicatorAtBottom={true}
-                        indicatorSize={25}
-                        indicatorColor="#fb620c"
-                        animate={false}
+                      width={width - 20}
+                      height={220}
+                      delay={10000}
+                      indicatorAtBottom={true}
+                      indicatorSize={25}
+                      indicatorColor="#fb620c"
+                      animate={true}
                     >
-                                            {slider_images.map(slider => {
+                      {slider_images.map(slider => {
 
-                                              image_path = "http://olosim.com/storage/app/public/"+slider.slider
+                        image_path = "http://olosim.com/storage/app/public/" + slider.slider
 
-                                              console.log(image_path)
-                                                    return (
-                                                      <View  key={slider.id} style={style.contentContainer}>
-                                                      <Image
-                                                      style={{width: width, height: 200}}
-                                                      resizeMode="stretch"
-                                                      source={{uri: image_path }}
-                                                      />
-                                                      </View>
-                                                    )
-                                                })}
-                                            
+                        console.log(image_path)
+                        return (
+                          <View key={slider.id} style={style.contentContainer}>
+                            <Image
+                              style={{ width: width, height: 200 }}
+                              resizeMode="stretch"
+                              source={{ uri: image_path }}
+                            />
+                          </View>
+                        )
+                      })}
 
-                      </Carousel>
+
+                    </Carousel>
                   </View>
-              </View>
-         }
+
+                  <View style={{ backgroundColor: 'orange', height: 80, width: '100%', flexDirection: 'row' }}>
+
+                    <View style={{ flex: 1 / 4, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onPress={() => this.move('newsim')}>
+                      <TouchableOpacity onPress={() => this.move()}>
+                        <View style={{ width: 50, height: 50, borderRadius: 50, backgroundColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                          <Icon name="apps" />
+                        </View>
+                        <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                          <Text style={{ fontWeight: 'bold', marginTop: 5, color: '#000' }}>New Sim</Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+
+
+                    <View style={{ flex: 1 / 4, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                      <View style={{ width: 50, height: 50, borderRadius: 50, backgroundColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Icon name="apps" />
+                      </View>
+                      <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontWeight: 'bold', marginTop: 5, color: '#000' }}>MNP</Text>
+                      </View>
+                    </View>
+                    <View style={{ flex: 1 / 4, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                      <View style={{ width: 50, height: 50, borderRadius: 50, backgroundColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Icon name="apps" />
+                      </View>
+                      <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontWeight: 'bold', marginTop: 5, color: '#000' }}>Sim Replacment</Text>
+                      </View>
+                    </View>
+                    <View style={{ flex: 1 / 4, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                      <View style={{ width: 50, height: 50, borderRadius: 50, backgroundColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Icon name="apps" />
+                      </View>
+                      <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontWeight: 'bold', marginTop: 5, color: '#000' }}>Fancy</Text>
+                      </View>
+                    </View>
+                  </View>
+
+                </View>
+            }
+          </View>
         </View>
-        </View>
-        </View>
+      </View>
     );
   }
 }
 
 
 const style = StyleSheet.create({
-    container: {
-        flex: 1,
+  container: {
+    flex: 1,
 
-    },
-    box: {
+  },
+  box: {
 
-    },
-    container: {
-        flex: 0.5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 70,
-    },
-    contentContainer: {
-        borderWidth: 0,
-        borderColor: '#CCC',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    innerBlock: {fontSize: 16, color: '#ff6f00', paddingTop: 5, fontWeight: 'bold'},
-middleLine: {borderBottomWidth: 2, borderColor: '#ff7200', width: 50},
-headerLine: { color: '#3F51B5', fontWeight: 'bold', fontSize: 55, textAlign: 'left' },
-iconstyle: {textAlign: 'right', padding: 5}
+  },
+  container: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 70,
+  },
+  contentContainer: {
+    borderWidth: 0,
+    borderColor: '#CCC',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerBlock: { fontSize: 16, color: '#ff6f00', paddingTop: 5, fontWeight: 'bold' },
+  middleLine: { borderBottomWidth: 2, borderColor: '#ff7200', width: 50 },
+  headerLine: { color: '#3F51B5', fontWeight: 'bold', fontSize: 55, textAlign: 'left' },
+  iconstyle: { textAlign: 'right', padding: 5 }
 });

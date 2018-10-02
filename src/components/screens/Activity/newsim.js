@@ -47,47 +47,9 @@ export default class Newsim extends Component {
 
   componentWillMount() {
   }
-
-
-
   async componentDidMount() {
-    let USER_ID = await AsyncStorage.getItem("USER_ID");
-    console.log(USER_ID)
-    if(USER_ID == null){
-      const { navigate } = this.props.navigation
-      onSignOut();
-      navigate("SignedOut")     
-    } else {
-
-    axios.post('http://apis.olosim.com/pitcures.php')
-    .then(async (response) => {
-        console.log(response)
-        data = response.data
-        this.setState({slider_images: data, loader: false})
-      })
-      .catch((error) => {
-        console.log(error.message)
-        this.setState({loader: false})
-    })
-
-  }
-    
   }
 
-  menu = () => {
-    const { navigate } = this.props.navigation
-    navigate("Menu")
-  }
-
-  shopping = () => {
-    const { navigate } = this.props.navigation
-    navigate("Shopping")
-  }
-
-  _onPressButton = () => {
-    const { navigate } = this.props.navigation
-    navigate("Newsim")
-  }
 
   render() {
 
@@ -96,9 +58,14 @@ export default class Newsim extends Component {
     console.log(slider_images)
 
       return (
-        <View>
-            <Text>New Sim</Text>
-        </View>
+        <Container>
+
+          <Content style={{flex: 1, backgroundColor: '#fafafa'}}>
+
+
+          </Content>
+
+        </Container>
     );
   }
 }
