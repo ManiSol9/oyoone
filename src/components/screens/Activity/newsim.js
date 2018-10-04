@@ -22,6 +22,8 @@ import {
 
 import axios from 'axios';
 
+import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+
 
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 
@@ -40,60 +42,55 @@ export default class Newsim extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loader:true,
-      slider_images: []
-    };
+      tableHead: ['Head', 'Head2', 'Head3', 'Head4'],
+      tableData: [
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd']
+      ]
+    }
   }
 
-  componentWillMount() {
+  _alertIndex(index) {
+    Alert.alert(`This is row ${index + 1}`);
   }
-  async componentDidMount() {
+  renderRow() {
+    return (
+      <View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row', height: 150, borderRadius: 5, padding: 10, borderWidth: 1 }}>
+        <Text>fff</Text>
+      </View>
+    );
   }
-
 
   render() {
 
-    const { slider_images } = this.state
+    const data = [1, 2, 3, 4, 5];
 
-    console.log(slider_images)
+    return (
+      <Container>
 
-      return (
-        <Container>
-
-          <Content style={{flex: 1, backgroundColor: '#fafafa'}}>
-
-
-          </Content>
-
-        </Container>
+        <Header />
+        <Content style={{ flex: 1, backgroundColor: '#fafafa' }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            {
+              data.map((datum) => {
+                return this.renderRow();
+              })
+            }
+          </View>
+        </Content>
+      </Container>
     );
   }
 }
 
 
-const style = StyleSheet.create({
-    container: {
-        flex: 1,
-
-    },
-    box: {
-
-    },
-    container: {
-        flex: 0.5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 70,
-    },
-    contentContainer: {
-        borderWidth: 0,
-        borderColor: '#CCC',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    innerBlock: {fontSize: 16, color: '#ff6f00', paddingTop: 5, fontWeight: 'bold'},
-middleLine: {borderBottomWidth: 2, borderColor: '#ff7200', width: 50},
-headerLine: { color: '#3F51B5', fontWeight: 'bold', fontSize: 55, textAlign: 'left' },
-iconstyle: {textAlign: 'right', padding: 5}
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  head: { height: 40, backgroundColor: '#808B97' },
+  text: { margin: 6 },
+  row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
+  btn: { width: 58, height: 18, backgroundColor: '#78B7BB', borderRadius: 2 },
+  btnText: { textAlign: 'center', color: '#fff' }
 });

@@ -75,104 +75,104 @@ export const SignedOut = StackNavigator({
             title: "Welcome",
             header: null,
         }
-    },    
+    },
 });
 
 
 
 export const SignedIn = StackNavigator({
-  Dashboard: {
-      screen: Dashboard,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-  },
-  Menu: {
-      screen: Menu,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-  },
-  Shopping: {
-      screen: Shopping,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-  },
-  Notifications: {
-      screen: Notifications,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-  },
-  Requests: {
+    Dashboard: {
+        screen: Dashboard,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Menu: {
+        screen: Menu,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Shopping: {
+        screen: Shopping,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Notifications: {
+        screen: Notifications,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Requests: {
         screen: Requests,
         navigationOptions: {
             title: "Welcome",
             header: null,
         }
-  },
-  Address: {
-          screen: Address,
-          navigationOptions: {
-              title: "Welcome",
-              header: null,
-          }
-  },
-  Password: {
-            screen: Password,
-            navigationOptions: {
-                title: "Welcome",
-                header: null,
-            }
-  },
-  Profile: {
-              screen: Profile,
-              navigationOptions: {
-                  title: "Welcome",
-                  header: null,
-              }
-  },
-  Orders: {
-    screen: Orders,
-    navigationOptions: {
-        title: "Welcome",
-        header: null,
-    }
-},
-Number: {
-      screen: Number,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-},
-Sims: {
-    screen: Sims,
-    navigationOptions: {
-        title: "Welcome",
-        header: null,
-    }
-},
-Newsim: {
-      screen: Newsim,
-      navigationOptions: {
-          title: "Welcome",
-          header: null,
-      }
-},
-  Landing: {
-    screen: Landing,
-    navigationOptions: {
-        title: "Welcome",
-        header: null,
-    }
     },
-  },
+    Address: {
+        screen: Address,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Password: {
+        screen: Password,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Profile: {
+        screen: Profile,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Orders: {
+        screen: Orders,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Number: {
+        screen: Number,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Sims: {
+        screen: Sims,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Newsim: {
+        screen: Newsim,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+    Landing: {
+        screen: Landing,
+        navigationOptions: {
+            title: "Welcome",
+            header: null,
+        }
+    },
+},
     {
         initialRouteName: 'Dashboard',
     }
